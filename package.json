@@ -1,0 +1,36 @@
+{
+  "name": "my_app",
+  "version": "1.0.0",
+  "description": "new login logout panel syetem",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skstanwar/my_app.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "login",
+    "logout"
+  ],
+  "author": "sanjay kumar saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skstanwar/my_app/issues"
+  },
+  "homepage": "https://github.com/skstanwar/my_app#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "mongodb": "^5.6.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
+}
