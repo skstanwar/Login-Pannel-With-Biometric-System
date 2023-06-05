@@ -4,25 +4,45 @@ import crypto from 'crypto'
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import {connectDB} from './config/Mdb.js';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import IsAuth from './Middleware/Auth.js';
 
-connectDB();
+dotenv.config();
+// connectDB();
 const app = express();
-const port = process.env.PORT || 3000;
-
-// app.use(express.json())
-// app.use(cookieSession({
-//     name: 'session',
-//     keys: [crypto.randomBytes(32).toString('hex')],
-  
-//     // Cookie Options
-//     maxAge: 24 * 60 * 60 * 1000 // 24 hours
-//   }))
-// // app.use(cookieParser());
+app.use(express.json());
 
 
-app.get('/', (req, res) => {res.send('Hello Wdsdsssdsdsdssdsdssorld!')
+app.use(cookieSession({
+    name: 'session',
+    keys: [crypto.randomBytes(20).toString('hex')],
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
-console.log(import.meta.url);
+app.use(cookieParser());
+
+const currentDir=path.dirname(fileURLToPath(import.meta.url));
+const staticDir=path.join(currentDir,'static');
+const publicDir=path.join(currentDir,'public'); 
+
+app.get('/', IsAuth,(req, res) => {   
+    res.sendFile(path.join(publicDir,'home.html'));
+}
+);
+
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(publicDir,'login.html'));
 });
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
+
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(publicDir,'register.html'));
+})
+
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
+}
+);

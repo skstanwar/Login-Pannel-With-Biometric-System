@@ -1,17 +1,21 @@
-import mongooes from 'mongoose';
+
+import mongoose from "mongoose";
+import colors from "colors";
 
 const connectDB = async () => {
+    console.log(import.meta);
     try {
-        await mongooes.connect(process.env.MONGODB_URI, {
+        const conn = await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: false
         });
-        console.log('Connect to MongoDB success');
+
+        console.log(`MongoDB Connected: ${ conn.connection.host }`.cyan.underline);
     } catch (error) {
-        console.log('Connect to MongoDB fail');
+        console.log(`Error: ${ error.message }`.red.bold);
+
         process.exit();
     }
+};
 
-}
-export {connectDB}
+export { connectDB };
