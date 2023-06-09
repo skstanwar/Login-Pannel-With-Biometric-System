@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url';
 import IsAuth from './Middleware/Auth.js';
 import Userroutes from './Routes/UserRoutes.js';
 
+
 dotenv.config();
 connectDB();
 
@@ -30,7 +31,7 @@ const publicDir=path.join(currentDir,'public');
 app.use(express.static(staticDir));
 
 
-////////-------path
+////////-------path---------------------------------///////
 app.get('/', IsAuth,(req, res) => {   
     res.sendFile(path.join(publicDir,'home.html'));
 }
