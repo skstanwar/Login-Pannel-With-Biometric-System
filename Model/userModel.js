@@ -1,12 +1,11 @@
 import mongoose from "mongoose"
 
 const userSchema = mongoose.Schema({
-    username:{type:String ,default:"user"},
-    name:{type:String ,default:"user"},
-    email:{type:String,unique:true},
+    username:{type:String},
+    name:{type:String },
+    email:{type:String},
     password:{type:String},
-    Credentialkey:{type:String},
-    
+  
 }
 ,
 {timestamps:true}

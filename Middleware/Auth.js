@@ -4,7 +4,7 @@ const IsAuth= (req, res, next)=>{
 
     }
     else{
-        res.redirect('/login');
+        res.redirect('/register');
     }
 }
 export default IsAuth;

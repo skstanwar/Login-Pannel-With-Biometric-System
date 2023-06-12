@@ -11,7 +11,7 @@ import Userroutes from './Routes/UserRoutes.js';
 
 
 dotenv.config();
-connectDB();
+// connectDB();
 
 const app = express();
 app.use(express.json());
@@ -40,7 +40,7 @@ app.get('/', IsAuth,(req, res) => {
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(publicDir,'login.html'));
-    console.log(req.cookies.maxAge);
+   
 });
 
 
