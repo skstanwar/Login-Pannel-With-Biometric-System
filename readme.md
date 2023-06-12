@@ -9,7 +9,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/skstanwar/my_app.git
+   git clone https://github.com/skstanwar/Login-Pannel-With-Biometric-System.git
    Install the project dependencies:
 ```bash
 Copy code
